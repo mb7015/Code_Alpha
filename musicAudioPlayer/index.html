@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Music Player</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="player-card">
+            <div class="album-art">
+                <img id="album-image" src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Album Art">
+                <div class="vinyl-record">
+                    <div class="vinyl-center"></div>
+                </div>
+            </div>
+            
+            <div class="song-info">
+                <h2 id="title">Beyond the Horizon</h2>
+                <h3 id="artist">Zenith</h3>
+            </div>
+
+            <div class="progress-container">
+                <div class="time-info">
+                    <span id="current-time">0:00</span>
+                    <span id="duration">0:00</span>
+                </div>
+                <div class="progress-bar" id="progress-bar-container">
+                    <div class="progress" id="progress-bar"></div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="shuffle" class="control-btn" title="Shuffle">
+                    <i class="fas fa-random"></i>
+                </button>
+                <button id="prev" class="control-btn" title="Previous">
+                    <i class="fas fa-step-backward"></i>
+                </button>
+                <button id="play" class="control-btn large" title="Play">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button id="next" class="control-btn" title="Next">
+                    <i class="fas fa-step-forward"></i>
+                </button>
+                <button id="repeat" class="control-btn" title="Repeat">
+                    <i class="fas fa-redo"></i>
+                </button>
+            </div>
+
+            <div class="volume-control">
+                <i class="fas fa-volume-down volume-icon"></i>
+                <div class="volume-slider-container">
+                    <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.7">
+                </div>
+                <i class="fas fa-volume-up volume-icon"></i>
+            </div>
+        </div>
+
+        <div class="playlist-container">
+            <h3>Playlist <span id="playlist-count">(3 songs)</span></h3>
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" id="search-playlist" placeholder="Search playlist...">
+            </div>
+            <ul id="playlist"></ul>
+        </div>
+    </div>
+
+    <audio id="audio"></audio>
+    
+    <script src="script.js"></script>
+</body>
+</html>
