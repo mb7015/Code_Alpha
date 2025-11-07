@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </head>
+<body>
+    <div class="calculator-container">
+        <div class="calculator-header">
+            <h1>Modern Calculator</h1>
+            <p>Sleek design with smooth interactions</p>
+        </div>
+        
+        <div class="calculator">
+            <input type="text" id="display" readonly placeholder="0">
+            <div class="buttons">
+                <button class="btn clear" data-value="C">C</button>
+                <button class="btn operator" data-value="/">÷</button>
+                <button class="btn operator" data-value="*">×</button>
+                <button class="btn operator" data-value="-">−</button>
+                
+                <button class="btn number" data-value="7">7</button>
+                <button class="btn number" data-value="8">8</button>
+                <button class="btn number" data-value="9">9</button>
+                <button class="btn operator" data-value="+">+</button>
+                
+                <button class="btn number" data-value="4">4</button>
+                <button class="btn number" data-value="5">5</button>
+                <button class="btn number" data-value="6">6</button>
+
+                <button class="btn number" data-value="1">1</button>
+                <button class="btn number" data-value="2">2</button>
+                <button class="btn number" data-value="3">3</button>
+
+                <button class="btn number zero" data-value="0">0</button>
+                <button class="btn number" data-value=".">.</button>
+                <button class="btn equals" data-value="=">=</button>
+            </div>
+        </div>
+        
+        <button class="toggle-history" id="toggleHistory">
+            <i class="fas fa-history"></i> Show History
+        </button>
+        
+        <div class="history-panel" id="historyPanel">
+            <h3>Calculation History</h3>
+            <div id="historyList"></div>
+        </div>
+        
+        <div class="calculator-footer">
+            <p>Modern Calculator &copy; 2023</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
