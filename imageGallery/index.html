@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Image Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1 class="gallery-title">My Awesome Image Gallery</h1>
+    </header>
+
+    <div class="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="nature">Nature</button>
+        <button class="filter-btn" data-filter="city">City</button>
+        <button class="filter-btn" data-filter="abstract">Abstract</button>
+    </div>
+
+    <div class="gallery-container">
+        <div class="gallery-item nature">
+            <img src="img/nature-1.PNG" alt="Nature Image 1" data-index="0">
+        </div>
+        <div class="gallery-item city">
+            <img src="img/city-1.PNG" alt="City Image 1" data-index="1">
+        </div>
+        <div class="gallery-item abstract">
+            <img src="img/abstract-1.PNG" alt="Abstract Image 1" data-index="2">
+        </div>
+        </div>
+
+    <div id="lightbox" class="lightbox">
+        <span class="close-btn">&times;</span>
+        
+        <button class="nav-btn prev-btn">Previous</button>
+        
+        <img id="lightbox-image" src="" alt="Full size image">
+        
+        <button class="nav-btn next-btn">Next</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

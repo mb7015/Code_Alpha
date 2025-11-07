@@ -1,0 +1,192 @@
+:root {
+    --primary-color: #3498db;
+    --transition-speed: 0.3s;
+}
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+/* --- Attractive Heading Styling (NEW) --- */
+header {
+    text-align: center; /* Center the entire header content */
+    margin-bottom: 20px;
+}
+
+.gallery-title {
+    font-size: 2.5em; /* Larger text */
+    font-weight: 800;
+    color: var(--primary-color); /* Use the primary color */
+    margin-top: 0.5em;
+    margin-bottom: 0.7em;
+    padding-bottom: 0.2em;
+    /* Add a subtle underline effect */
+    border-bottom: 3px solid rgba(52, 152, 219, 0.3); 
+    display: inline-block;
+    /* Text Shadow for a slight lift */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+    /* Letter spacing for a modern look */
+    letter-spacing: 2px;
+}
+
+/* --- Accessibility: Respect User's Motion Preferences --- */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
+}
+
+/* --- Gallery Grid Layout (Responsive) --- */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 20px 0;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    /* max-width/margin transitions for smooth filter collapse */
+    max-width: 100%; 
+    margin-bottom: 15px;
+    transition: transform var(--transition-speed), 
+                opacity var(--transition-speed), 
+                max-width 0.5s ease-out,
+                margin 0.5s ease-out;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--transition-speed) ease-in-out, filter var(--transition-speed);
+}
+
+/* --- Hover Effects --- */
+.gallery-item:hover {
+    transform: translateY(-5px);
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+    filter: brightness(0.8);
+}
+
+/* --- Filters Styling (Enhanced Responsiveness) --- */
+.filters {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    background-color: #ccc;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+
+.filter-btn:hover {
+    background-color: #aaa;
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Hide images that don't match the active filter (Smooth Collapse) */
+.gallery-item.hidden {
+    opacity: 0;
+    max-width: 0; 
+    height: 0; 
+    margin: 0;
+    padding: 0;
+    visibility: hidden;
+}
+
+/* --- Lightbox/Modal View --- */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.lightbox.open {
+    display: flex;
+}
+
+#lightbox-image {
+    max-width: 90%;
+    max-height: 90%;
+    transition: opacity var(--transition-speed) ease-in-out; 
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color var(--transition-speed);
+}
+
+.close-btn:hover {
+    color: var(--primary-color);
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2em;
+    padding: 20px;
+    cursor: pointer;
+    z-index: 1001;
+    transition: opacity var(--transition-speed);
+}
+
+.nav-btn:hover {
+    opacity: 0.7;
+}
+
+/* --- Responsive Media Query for smaller screens --- */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .gallery-container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+        gap: 10px;
+    }
+
+    .gallery-item img {
+        height: 150px;
+    }
+
+    .nav-btn {
+        padding: 10px;
+        font-size: 1.5em;
+    }
+}
